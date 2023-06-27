@@ -1,0 +1,30 @@
+<div class="container">
+  <h1 class="text-center"><b>Calculadora de Distancias entre 2 puntos</b></h1>
+  
+  <div class="form">
+    <div class="form">
+      <div class="form-group">
+        <label for="x1">Valor de X1:</label>
+        <input class="form-control" [(ngModel)]="x1" type="number" id="x1" placeholder="Introduce tu X1">
+      </div>
+      <div class="form-group">
+        <label for="y1">Valor de Y1:</label>
+        <input class="form-control" [(ngModel)]="y1" type="number" id="y1" placeholder="Introduce tu Y1">
+      </div>
+      <div class="form-group">
+        <label for="x2">Valor de X2:</label>
+        <input class="form-control" [(ngModel)]="x2" type="number" id="x2" placeholder="Introduce tu X2">
+      </div>
+      <div class="form-group">
+        <label for="y2">Valor de Y2:</label>
+        <input class="form-control" [(ngModel)]="y2" type="number" id="y2" placeholder="Introduce tu Y2">
+      </div>
+      <div class="text-center">
+        <button class="btn btn-primary" (click)="calcularDistancias()">Calcular</button>
+      </div>
+    </div>
+    <div class="form">
+      <h2>El resultado es: {{resultado}}</h2>
+    </div>
+  </div>
+</div>

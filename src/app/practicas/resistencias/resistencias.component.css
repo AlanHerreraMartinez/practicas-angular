@@ -1,0 +1,83 @@
+.resistencias {
+  max-width: 500px; /* Establece el ancho máximo del contenedor resistencias */
+  margin: 0 auto; /* Centra el contenedor resistencias horizontalmente */
+  padding: 20px; /* Establece el espacio de relleno dentro del contenedor resistencias */
+  text-align: center; /* Centra el contenido del contenedor resistencias horizontalmente */
+}
+
+h1 {
+  font-size: 24px; /* Establece el tamaño de fuente del encabezado h1 */
+  margin-bottom: 20px; /* Establece el margen inferior del encabezado h1 */
+}
+
+.form-group {
+  margin-bottom: 20px; /* Establece el margen inferior del grupo de formularios */
+}
+
+.select-wrapper {
+  position: relative; /* Establece la posición relativa del contenedor del select */
+}
+
+.select-wrapper select {
+  width: 100%; /* Establece el ancho del select al 100% del contenedor */
+  padding: 8px; /* Establece el espacio de relleno dentro del select */
+  border: 1px solid #ced4da; /* Establece el borde del select */
+  border-radius: 4px; /* Establece el radio de borde del select */
+  background-color: #fff; /* Establece el color de fondo del select */
+  cursor: pointer; /* Cambia el cursor cuando se coloca sobre el select */
+}
+
+.form-check-label {
+  padding: 5px 10px; /* Establece el espacio de relleno dentro de la etiqueta del formulario */
+  border-radius: 4px; /* Establece el radio de borde de la etiqueta del formulario */
+  cursor: pointer; /* Cambia el cursor cuando se coloca sobre la etiqueta del formulario */
+}
+
+.form-check-input:checked + .form-check-label {
+  color: #fff; /* Cambia el color del texto de la etiqueta del formulario cuando está seleccionado */
+}
+
+#dorado:checked + .form-check-label {
+  background-color: #FFD700; /* Cambia el color de fondo de la etiqueta del formulario cuando está seleccionado el checkbox con ID "dorado" */
+}
+
+#plateado:checked + .form-check-label {
+  background-color: #C0C0C0; /* Cambia el color de fondo de la etiqueta del formulario cuando está seleccionado el checkbox con ID "plateado" */
+}
+
+.resultados {
+  margin-top: 30px; /* Establece el margen superior de los resultados */
+}
+
+.table {
+  width: 100%; /* Establece el ancho de la tabla al 100% del contenedor */
+  border-collapse: collapse; /* Colapsa los bordes de la tabla */
+}
+
+.table th,
+.table td {
+  padding: 8px; /* Establece el espacio de relleno dentro de las celdas de la tabla */
+}
+
+.table thead th {
+  background-color: #f8f9fa; /* Establece el color de fondo de las celdas de encabezado de la tabla */
+  text-align: center; /* Centra el texto en las celdas de encabezado de la tabla */
+}
+
+.table tbody td {
+  text-align: center; /* Centra el texto en las celdas del cuerpo de la tabla */
+}
+
+.table tbody td:first-child {
+  text-transform: capitalize; /* Convierte la primera letra del texto en mayúscula en las celdas del cuerpo de la tabla */
+}
+
+.btn-primary {
+  background-color: #007bff; /* Establece el color de fondo del botón primario */
+  color: #fff; /* Establece el color del texto del botón primario */
+  border: none; /* Elimina el borde del botón primario */
+  padding: 10px 20px; /* Establece el espacio de relleno dentro del botón primario */
+  font-size: 16px; /* Establece el tamaño de fuente del texto del botón primario */
+  border-radius: 4px; /* Establece el radio de borde del botón primario */
+  cursor: pointer; /* Cambia el cursor cuando se coloca sobre el botón primario */
+}

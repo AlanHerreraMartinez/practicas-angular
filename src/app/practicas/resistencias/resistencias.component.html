@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="resistencias">
+    <h1 class="text-center"><b>Calculadora de Resistencias</b></h1>
+
+    <div class="form">
+      <div class="form-group">
+        <label for="banda1">Banda 1:</label>
+        <div class="select-wrapper">
+          <select id="banda1" [(ngModel)]="banda1">
+            <option *ngFor="let banda of bandas" [value]="banda.valor" [ngStyle]="{'background-color': banda.hex}">
+              {{ banda.color }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="banda2">Banda 2:</label>
+        <div class="select-wrapper">
+          <select id="banda2" [(ngModel)]="banda2">
+            <option *ngFor="let banda of bandas" [value]="banda.valor" [ngStyle]="{'background-color': banda.hex}">
+              {{ banda.color }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="multiplicador">Multiplicador:</label>
+        <div class="select-wrapper">
+          <select id="multiplicador" [(ngModel)]="multiplicador">
+            <option *ngFor="let banda of bandas" [value]="banda.valor" [ngStyle]="{'background-color': banda.hex}">
+              {{ banda.color }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Tolerancia:</label>
+        <div class="radio-wrapper">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="dorado" value="dorado" [(ngModel)]="tolerancia">
+            <label class="form-check-label" for="dorado" [ngStyle]="{'background-color': '#FFD700'}">Dorado</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="plateado" value="plateado" [(ngModel)]="tolerancia">
+            <label class="form-check-label" for="plateado" [ngStyle]="{'background-color': '#C0C0C0'}">Plateado</label>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" (click)="calcular()">Calcular</button>
+    </div>
+
+    <div class="resultados" *ngIf="valor !== undefined">
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Banda 1</th>
+                <th>Banda 2</th>
+                <th>Multiplicador</th>
+                <th>Tolerancia</th>
+                <th>Valor de la Resistencia</th>
+                <th>Tolerancia Mínima</th>
+                <th>Tolerancia Máxima</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td [style.background-color]="getBandaColor(banda1)?.hex"></td>
+                <td [style.background-color]="getBandaColor(banda2)?.hex"></td>
+                <td [style.background-color]="getBandaColor(multiplicador)?.hex"></td>
+                <td [style.background-color]="getToleranciaColor(tolerancia)"></td>
+                <td>{{ valor }}</td>
+                <td>{{ toleranciaMin }}</td>
+                <td>{{ toleranciaMax }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+  </div>
+</div>
