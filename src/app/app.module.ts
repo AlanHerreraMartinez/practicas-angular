@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DistanciasModule } from './practicas/distancias/distancias/distancias.module';
 import { ResistenciasModule } from './practicas/resistencias/resistencias/resistencias.module';
+import { PizzeriaModule } from './practicas/pizzeria/pizzeria/pizzeria/pizzeria.module';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ResistenciasModule } from './practicas/resistencias/resistencias/resist
     BrowserModule,
     BrowserAnimationsModule,
     DistanciasModule,
-    ResistenciasModule
+    ResistenciasModule,
+    PizzeriaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
