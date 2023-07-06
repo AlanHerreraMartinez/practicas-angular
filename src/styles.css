@@ -5,6 +5,6 @@ body {
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif;
     background-image: url('https://images.pexels.com/photos/1631677/pexels-photo-1631677.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    background-repeat: no-repeat;
+    background-repeat: space;
     background-size: cover;
 }

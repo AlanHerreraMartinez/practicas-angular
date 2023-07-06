@@ -1,0 +1,96 @@
+<div>
+  <h1>Pizzeria</h1>
+  <form >
+    <h3>Datos Cliente</h3>
+    <div>
+      <label>Nombre:</label>
+      <input type="text"  required>
+    </div>
+    <div>
+      <label>Dirección:</label>
+      <input type="text"  required>
+    </div>
+    <div>
+      <label>Teléfono:</label>
+      <input type="text"  required>
+    </div>
+    <div>
+      <label>Fecha de compra:</label>
+      <input type="text"  required>
+    </div>
+    <h3>Datos Pizza</h3>
+    <div>
+      <label>Tamaño de Pizza:</label>
+      <div>
+```html
+        <label>
+          <input type="radio" name="tamano"  value="Chica" required> Chica
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="radio" name="tamano"  value="Mediana" required> Mediana
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="radio" name="tamano"  value="Grande" required> Grande
+        </label>
+      </div>
+    </div>
+    <div>
+      <label>Ingredientes:</label>
+      <div>
+        <label>
+          <input type="checkbox"  value="Jamon"> Jamón
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox"  value="Piña"> Piña
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox"  value="Champiñones"> Champiñones
+        </label>
+      </div>
+    </div>
+    <div>
+      <label>Número de pizzas:</label>
+      <input type="number"  required>
+    </div>
+    <div>
+      <button type="button" >Agregar</button>
+    </div>
+    <h3>Detalle del Pedido</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Tamaño</th>
+          <th>Ingredientes</th>
+          <th>Número de pizzas</th>
+          <th>Subtotal</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ tamano }}</td>
+          <td>{{ ingredientes}}</td>
+          <td>{{ numeroPizzas }}</td>
+          <td>{{ subtotal }}</td>
+          <td>
+            <button type="button" >Quitar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <button type="submit">Terminar</button>
+    </div>
+  </form>
+  <div>
+    <p>Venta del día: {{ totalDia }}</p>
+  </div>
+</div>
