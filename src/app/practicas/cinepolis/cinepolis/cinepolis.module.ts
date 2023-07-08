@@ -1,12 +1,21 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { CinepolisComponent } from '../cinepolis.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    CinepolisComponent
+  ],
   imports: [
-    CommonModule
+    ReactiveFormsModule, 
+    BrowserModule
+  ],
+  exports:[
+    CinepolisComponent
   ]
 })
 export class CinepolisModule { }

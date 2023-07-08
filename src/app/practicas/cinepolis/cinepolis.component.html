@@ -1,1 +1,60 @@
-<p>cinepolis works!</p>
+<form [formGroup]="cinemaForm" (ngSubmit)="onSubmit()" class="form">
+  <h1 class="form-title">Cinepolis</h1>
+  <div class="inline-message" *ngIf="inlineMessage">{{ inlineMessage }}</div>
+  <div class="form-group">
+    <label for="cinemaName" class="form-label">Nombre</label>
+    <input type="text" id="cinemaName" formControlName="cinemaName" class="form-control">
+    <div *ngIf="cinemaForm.get('cinemaName')?.touched && cinemaForm.get('cinemaName')?.invalid" class="alert alert-danger">
+      Nombre requerido
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="numberOfBuyers" class="form-label">Cantidad de Compradores</label>
+    <input type="number" id="numberOfBuyers" formControlName="numberOfBuyers" class="form-control">
+    <div *ngIf="cinemaForm.get('numberOfBuyers')?.touched && cinemaForm.get('numberOfBuyers')?.invalid" class="alert alert-danger">
+      Cantidad de compradores requerida.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="numberOfTickets" class="form-label">Cantidad de Boletos</label>
+    <input type="number" id="numberOfTickets" formControlName="numberOfTickets" class="form-control">
+    <div *ngIf="cinemaForm.get('numberOfTickets')?.touched && cinemaForm.get('numberOfTickets')?.invalid" class="alert alert-danger">
+      Cantidad de boletos requerida.
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="form-label">Tarjeta Cineco:</label>
+    <div class="radio-group">
+      <label class="radio">
+        <input type="radio" formControlName="card" value="Si">
+        <span>Si</span>
+      </label>
+      <label class="radio">
+        <input type="radio" formControlName="card" value="No">
+        <span>No</span>
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Pagar</button>
+</form>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Cantidad de Compradores</th>
+      <th>Cantidad de Boletos</th>
+      <th>Tarjeta</th>
+      <th>Total a Pagar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cinema of cinemas">
+      <td>{{ cinema.name }}</td>
+      <td>{{ cinema.numberOfBuyers }}</td>
+      <td>{{ cinema.numberOfTickets }}</td>
+      <td>{{ cinema.card }}</td>
+      <td>{{ calculateDiscount(cinema) }}</td>
+    </tr>
+  </tbody>
+</table>

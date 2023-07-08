@@ -1,0 +1,32 @@
+.manuscrita {
+    font-family: "Lucida Handwriting";
+    font-weight: 900;
+}
+
+.header {
+    position: relative;
+    margin-bottom: 20px; 
+}
+
+.image-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px; 
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.rounded-image {
+    width: 100%;
+    height: auto;
+}
+
+.form-container {
+    margin-top: 50px; /* Espacio entre la imagen y el formulario */
+}
+
+.colVentas{
+    background-color: burlywood;
+}

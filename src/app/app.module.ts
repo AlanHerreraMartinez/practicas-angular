@@ -10,15 +10,13 @@ import { ResistenciasModule } from './practicas/resistencias/resistencias/resist
 import { PizzeriaModule } from './practicas/pizzeria/pizzeria/pizzeria.module';
 import { CinepolisModule } from './practicas/cinepolis/cinepolis/cinepolis.module';
 import { AppRoutingModule } from './app.routing.module';
-import { PizzeriaComponent } from './practicas/pizzeria/pizzeria.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    MenuComponent,
-    PizzeriaComponent
+    MenuComponent
   ],
   imports: [
     BrowserModule,

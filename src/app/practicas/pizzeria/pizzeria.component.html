@@ -1,96 +1,166 @@
-<div>
-  <h1>Pizzeria</h1>
-  <form >
-    <h3>Datos Cliente</h3>
-    <div>
-      <label>Nombre:</label>
-      <input type="text"  required>
+<div class="container">
+  <div class="header">
+    <h1 class="text-center">
+      <b>FREDDY FAZBEAR'S</b><br>
+      <h2 class="manuscrita">PIZZA</h2>
+    </h1>
+    <div class="image-container">
+      <img src="https://e.rpp-noticias.io/xlarge/2023/05/17/274527_1429158.jpg" alt="Imagen" class="rounded-image">
     </div>
-    <div>
-      <label>Dirección:</label>
-      <input type="text"  required>
-    </div>
-    <div>
-      <label>Teléfono:</label>
-      <input type="text"  required>
-    </div>
-    <div>
-      <label>Fecha de compra:</label>
-      <input type="text"  required>
-    </div>
-    <h3>Datos Pizza</h3>
-    <div>
-      <label>Tamaño de Pizza:</label>
-      <div>
-```html
-        <label>
-          <input type="radio" name="tamano"  value="Chica" required> Chica
-        </label>
+  </div>
+
+  <div class="form-container">
+    <form [formGroup]="clienteForm" (ngSubmit)="agregarPizza()">
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" formControlName="nombre" required>
+            <div *ngIf="clienteForm.get('nombre')?.invalid && (clienteForm.get('nombre')?.dirty || clienteForm.get('nombre')?.touched)" class="alert alert-danger">
+              Nombre es requerido
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="direccion">Dirección:</label>
+            <input type="text" class="form-control" id="direccion" formControlName="direccion" required>
+            <div *ngIf="clienteForm.get('direccion')?.invalid && (clienteForm.get('direccion')?.dirty || clienteForm.get('direccion')?.touched)" class="alert alert-danger">
+              Dirección es requerida
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="telefono">Teléfono:</label>
+            <input type="text" class="form-control" id="telefono" formControlName="telefono" required>
+            <div *ngIf="clienteForm.get('telefono')?.invalid && (clienteForm.get('telefono')?.dirty || clienteForm.get('telefono')?.touched)" class="alert alert-danger">
+              Teléfono es requerido
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        <label>
-          <input type="radio" name="tamano"  value="Mediana" required> Mediana
-        </label>
+
+      <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label>Tamaño de Pizza:</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="tamano" id="chica" value="Chica" formControlName="tamano" required>
+              <label class="form-check-label" for="chica">Chica $40</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="tamano" id="mediana" value="Mediana" formControlName="tamano" required>
+              <label class="form-check-label" for="mediana">Mediana $80</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="tamano" id="grande" value="Grande" formControlName="tamano" required>
+              <label class="form-check-label" for="grande">Grande $120</label>
+            </div>
+            <div *ngIf="clienteForm.get('tamano')?.invalid && (clienteForm.get('tamano')?.dirty || clienteForm.get('tamano')?.touched)" class="alert alert-danger">
+              Tamaño es requerido
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-group">
+            <label>Ingredientes:</label>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="ingredientes" id="jamon" value="Jamon"
+                (change)="toggleIngrediente('Jamon')" [checked]="clienteForm.value.ingredientes.includes('Jamon')">
+              <label class="form-check-label" for="jamon">Jamón $10</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="ingredientes" id="pina" value="Piña"
+                (change)="toggleIngrediente('Piña')" [checked]="clienteForm.value.ingredientes.includes('Piña')">
+              <label class="form-check-label" for="pina">Piña $10</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="ingredientes" id="champinones" value="Champiñones"
+                (change)="toggleIngrediente('Champiñones')" [checked]="clienteForm.value.ingredientes.includes('Champiñones')">
+              <label class="form-check-label" for="champinones">Champiñones $10</label>
+            </div>
+            <div *ngIf="clienteForm.get('ingredientes')?.invalid && (clienteForm.get('ingredientes')?.dirty || clienteForm.get('ingredientes')?.touched)"
+              class="alert alert-danger">
+              Ingredientes son requeridos
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="form-group">
+            <label for="numeroPizzas">Número de Pizzas:</label>
+            <input type="number" class="form-control" id="numeroPizzas" formControlName="numeroPizzas" required>
+            <div *ngIf="clienteForm.get('numeroPizzas')?.invalid && (clienteForm.get('numeroPizzas')?.dirty || clienteForm.get('numeroPizzas')?.touched)" class="alert alert-danger">
+              Número de Pizzas es requerido
+            </div>
+          </div>
+          <br>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Agregar</button>
+          </div>
+        </div>
       </div>
-      <div>
-        <label>
-          <input type="radio" name="tamano"  value="Grande" required> Grande
-        </label>
+    </form>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <table class="table mt-4">
+          <thead>
+            <tr>
+              <th>Tamaño</th>
+              <th>Ingredientes</th>
+              <th>Número de Pizzas</th>
+              <th>Subtotal</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pizza of pizzas; let i = index">
+              <td>{{ pizza.tamano }}</td>
+              <td>{{ pizza.ingredientes.join(', ') }}</td>
+              <td>{{ pizza.numeroPizzas }}</td>
+              <td>{{ pizza.subtotal }}</td>
+              <td>
+                <button class="btn btn-danger" (click)="quitarPizza(i)">Quitar</button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3"></td>
+              <td>Total Día:</td>
+              <td>{{ totalDia }}</td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <div *ngIf="pizzas.length > 0">
+          <button class="btn btn-danger" (click)="terminarPedido()">Terminar</button>
+        </div>
       </div>
     </div>
-    <div>
-      <label>Ingredientes:</label>
-      <div>
-        <label>
-          <input type="checkbox"  value="Jamon"> Jamón
-        </label>
+
+    <div class="col">
+      <div class="form-group">
+        <div *ngIf="terminado" class="colVentas">
+          <h3 class="text-center">
+            <b>Ventas del día:
+              <b *ngFor="let pizza of pizzas" class="text-center">
+                <br>
+                <label>{{ pizza.nombreCliente }} - Total: {{ pizza.subtotal }}</label>
+                <br>
+              </b>
+            </b>
+          </h3>
+          <h3 class="text-center">
+            <b>Ventas totales del día: {{ totalDia }}</b>
+          </h3>
+        </div>
       </div>
-      <div>
-        <label>
-          <input type="checkbox"  value="Piña"> Piña
-        </label>
-      </div>
-      <div>
-        <label>
-          <input type="checkbox"  value="Champiñones"> Champiñones
-        </label>
-      </div>
     </div>
-    <div>
-      <label>Número de pizzas:</label>
-      <input type="number"  required>
-    </div>
-    <div>
-      <button type="button" >Agregar</button>
-    </div>
-    <h3>Detalle del Pedido</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Tamaño</th>
-          <th>Ingredientes</th>
-          <th>Número de pizzas</th>
-          <th>Subtotal</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{ tamano }}</td>
-          <td>{{ ingredientes}}</td>
-          <td>{{ numeroPizzas }}</td>
-          <td>{{ subtotal }}</td>
-          <td>
-            <button type="button" >Quitar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div>
-      <button type="submit">Terminar</button>
-    </div>
-  </form>
-  <div>
-    <p>Venta del día: {{ totalDia }}</p>
   </div>
 </div>
